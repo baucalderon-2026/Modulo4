@@ -1,0 +1,56 @@
+{
+  "yaml_frontmatter": {
+    "title": "Petroleum Inventory Trajectories Under the 2026 Strait of Hormuz Closure: A Mass-Balance Forecast Model [cite: 2, 3, 4, 5]",
+    "description": "A Mass-Balance Forecast Model with Sensitivity Analysis and Falsifiable Predictions",
+    "author": [
+      {
+        "name": "Greg Villines",
+        "affiliation": "Independent Researcher [cite: 6]"
+      }
+    ],
+    "date": "May 8, 2026 [cite: 7]",
+    "output": {
+      "distill::distill_article": {
+        "toc": true,
+        "toc_depth": 2
+      }
+    }
+  },
+  "abstract": "This paper develops a weekly mass-balance forecasting model for U.S. petroleum inventories during the 2026 Strait of Hormuz closure crisis[cite: 9]. The model identifies calendar dates when inventories cross operational floors, forecasting a national motor gasoline floor crossing of July 17, 2026[cite: 10].",
+  "keywords": ["petroleum inventory", "Strategic Petroleum Reserve", "Strait of Hormuz", "forecast model", "mass balance [cite: 13]"],
+  "sections": [
+    {
+      "heading": "1. Introduction",
+      "content": "On 28 February 2026, the United States and Israel initiated a coordinated air campaign against the Islamic Republic of Iran, resulting in the closure of the Strait of Hormuz[cite: 19, 20]. The supply shock has been partially absorbed by accelerated drawdowns of U.S. Strategic Petroleum Reserve and record exports[cite: 24]."
+    },
+    {
+      "heading": "2. Background and Institutional Context",
+      "content": "The Strait of Hormuz closure acts as an exogenous shock[cite: 52]. The Strategic Petroleum Reserve (SPR) has an authorized capacity of 714 million barrels, with a maximum sustained drawdown rate of approximately 4.4 million barrels per day[cite: 63, 65]."
+    },
+    {
+      "heading": "3. Data Sources",
+      "content": "Data is primarily drawn from the U.S. Energy Information Administration (EIA), including the Weekly Petroleum Status Report and Short-Term Energy Outlook[cite: 85, 88].",
+      "rmarkdown_table": {
+        "description": "Table 1: Data sources used in the model[cite: 94].",
+        "r_chunk": "```{r data-sources, echo=FALSE, layout=\"l-body-outset\"}\nlibrary(knitr)\nlibrary(rmarkdown)\ndata_sources <- data.frame(\n  Source = c('EIA Weekly Petroleum Status Report', 'EIA Short-Term Energy Outlook', 'U.S. DOE / Office of Petroleum Reserves'),\n  Variables = c('Crude production, imports, refinery inputs, all stock levels', '2026 production forecast, price forecast, refinery utilization', 'SPR site-level inventory; release schedule'),\n  Frequency = c('Weekly', 'Monthly', 'Weekly')\n)\npaged_table(data_sources)\n```"
+      }
+    },
+    {
+      "heading": "4. Mathematical Model",
+      "content": "The model is a deterministic, weekly-resolution mass-balance accounting framework[cite: 102]. The mass balance equation for the Strategic Petroleum Reserve is $S_S(t+1)=S_S(t)-r_S(t)$[cite: 114]. The floor-crossing time $T^*_i$ is defined as $$T^*_i=\\min\\{t\\in\\mathbb{N}:S_i(t)<F_i\\}$$[cite: 135, 136]."
+    },
+    {
+      "heading": "5. Baseline Forecast",
+      "content": "Motor gasoline is forecast to enter the operational-floor regime nationally on July 17, 2026 (week 11), at 213.9 MMbbl[cite: 178, 180]. Distillate is already below the floor as of May 1, 2026[cite: 178].",
+      "rmarkdown_figure": {
+        "description": "Visualización de las predicciones cruzando los límites operativos usando ggplot2.",
+        "r_chunk": "
+http://googleusercontent.com/immersive_entry_chip/0
+
+### **Instrucciones para utilizar esto en R Markdown (Distill)**
+
+1.  Abre RStudio y crea un nuevo archivo R Markdown seleccionando la plantilla **Distill Article**.
+2.  Copia el contenido del nodo `yaml_frontmatter` en el encabezado de tu archivo `.Rmd` (entre los `---`).
+3.  Copia las secciones de texto directamente en el cuerpo del documento.
+4.  Copia y pega el contenido dentro de los campos `r_chunk` asegurándote de incluir los delimitadores de R (` ```{r} ... ``` `). Esto renderizará tanto la tabla con `knitr` y `rmarkdown::paged_table()` como el gráfico con `ggplot2`.
+5.  Puedes generar tu bibliografía exportando el arreglo `references_apa` a un archivo `.bib` si prefieres usar el motor automático de Distill, o simplemente pegarlas en la sección final de "Referencias" como texto plano.
